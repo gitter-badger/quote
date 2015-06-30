@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Quotes;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class QuotesController extends Controller
 {
@@ -16,7 +18,8 @@ class QuotesController extends Controller
      */
     public function index()
     {
-        return view('quotes.index');
+        $quotes = Quotes::latest('published_at')->get();
+        return view('quotes.index', compact('quotes'));
     }
 
     /**
@@ -47,7 +50,9 @@ class QuotesController extends Controller
      */
     public function show($id)
     {
-        //
+        $quote = Quotes::findorFail($id);
+
+        return view('quotes.show', compact('quote'));
     }
 
     /**

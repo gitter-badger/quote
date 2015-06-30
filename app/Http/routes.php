@@ -12,4 +12,10 @@
 */
 
 
+
 Route::get('/', 'QuotesController@index');
+Route::get('quotes', 'QuotesController@index');
+Route::get('quotes/create', 'QuotesController@create');
+Route::get('quotes/{id}', 'QuotesController@show');
+
+Route::post('quotes', 'QuotesController@store');
