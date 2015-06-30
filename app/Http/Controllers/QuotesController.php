@@ -29,7 +29,7 @@ class QuotesController extends Controller
      */
     public function create()
     {
-        //
+        return view('quotes.create');
     }
 
     /**
@@ -51,6 +51,7 @@ class QuotesController extends Controller
     public function show($id)
     {
         $quote = Quotes::findorFail($id);
+
 
         return view('quotes.show', compact('quote'));
     }
