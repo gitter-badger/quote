@@ -29,7 +29,7 @@ class QuotesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
